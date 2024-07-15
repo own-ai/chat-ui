@@ -188,6 +188,10 @@ export async function endpointOai(
 				messagesOpenAI[0].content = preprompt ?? "";
 			}
 
+			if (messagesOpenAI?.[0]?.role === "system" && !messagesOpenAI?.[0]?.content) {
+				messagesOpenAI.shift();
+			}
+
 			if (toolResults && toolResults.length > 0) {
 				const toolCallRequests: OpenAI.Chat.Completions.ChatCompletionAssistantMessageParam = {
 					role: "assistant",
@@ -259,10 +263,12 @@ async function prepareMessages(
 			if (message.from === "user" && isMultimodal) {
 				return {
 					role: message.from,
-					content: [
-						...(await prepareFiles(imageProcessor, message.files ?? [])),
-						{ type: "text", text: message.content },
-					],
+					content: message.files?.length
+						? [
+								...(await prepareFiles(imageProcessor, message.files ?? [])),
+								{ type: "text", text: message.content },
+						  ]
+						: message.content,
 				};
 			}
 			return {
