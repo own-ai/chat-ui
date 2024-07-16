@@ -13,7 +13,7 @@
 
 <Modal>
 	<div
-		class="from-primary-500/40 via-primary-500/10 to-primary-500/0 flex w-full flex-col items-center gap-6 bg-gradient-to-b px-5 pb-8 pt-9 text-center sm:px-6"
+		class="from-primary-500/40 via-primary-500/10 to-primary-500/0 flex w-full flex-col gap-6 bg-gradient-to-b px-5 pb-8 pt-9 sm:px-6"
 	>
 		<h2 class="flex items-center text-2xl font-semibold text-gray-800">
 			<Logo classNames="mr-1" />
@@ -23,6 +23,26 @@
 		<p class="text-lg font-semibold leading-snug text-gray-800" style="text-wrap: balance;">
 			{envPublic.PUBLIC_APP_DESCRIPTION}
 		</p>
+
+		{#if envPublic.PUBLIC_APP_CLAIM_1 || envPublic.PUBLIC_APP_CLAIM_2 || envPublic.PUBLIC_APP_CLAIM_3}
+			<ul class="list-disc px-3 text-left text-sm text-gray-800">
+				{#if envPublic.PUBLIC_APP_CLAIM_1}
+					<li>
+						{envPublic.PUBLIC_APP_CLAIM_1}
+					</li>
+				{/if}
+				{#if envPublic.PUBLIC_APP_CLAIM_2}
+					<li>
+						{envPublic.PUBLIC_APP_CLAIM_2}
+					</li>
+				{/if}
+				{#if envPublic.PUBLIC_APP_CLAIM_3}
+					<li>
+						{envPublic.PUBLIC_APP_CLAIM_3}
+					</li>
+				{/if}
+			</ul>
+		{/if}
 
 		<p class="text-sm text-gray-500">
 			{envPublic.PUBLIC_APP_DISCLAIMER_MESSAGE}
