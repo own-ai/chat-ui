@@ -84,7 +84,7 @@ export const load: LayoutServerLoad = async ({ locals, depends, request }) => {
 
 	let loginRequired = false;
 
-	if (requiresUser && !locals.user && messagesBeforeLogin) {
+	if (requiresUser && !locals.user && messagesBeforeLogin && messagesBeforeLogin !== -1) {
 		if (conversations.length > messagesBeforeLogin) {
 			loginRequired = true;
 		} else {
@@ -244,6 +244,6 @@ export const load: LayoutServerLoad = async ({ locals, depends, request }) => {
 		enableCommunityTools: env.COMMUNITY_TOOLS === "true",
 		loginRequired,
 		loginEnabled: requiresUser,
-		guestMode: requiresUser && messagesBeforeLogin > 0,
+		guestMode: requiresUser && messagesBeforeLogin !== 0,
 	};
 };

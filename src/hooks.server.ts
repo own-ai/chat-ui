@@ -251,7 +251,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 		if (
 			!event.locals.user &&
 			requiresUser &&
-			!((env.MESSAGES_BEFORE_LOGIN ? parseInt(env.MESSAGES_BEFORE_LOGIN) : 0) > 0)
+			(env.MESSAGES_BEFORE_LOGIN ? parseInt(env.MESSAGES_BEFORE_LOGIN) : 0) === 0
 		) {
 			return errorResponse(401, ERROR_MESSAGES.authOnly);
 		}

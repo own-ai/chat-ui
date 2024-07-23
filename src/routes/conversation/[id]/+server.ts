@@ -80,7 +80,7 @@ export async function POST({ request, locals, params, getClientAddress }) {
 	const messagesBeforeLogin = env.MESSAGES_BEFORE_LOGIN ? parseInt(env.MESSAGES_BEFORE_LOGIN) : 0;
 
 	// guest mode check
-	if (!locals.user?._id && requiresUser && messagesBeforeLogin) {
+	if (!locals.user?._id && requiresUser && messagesBeforeLogin && messagesBeforeLogin !== -1) {
 		const totalMessages =
 			(
 				await collections.conversations

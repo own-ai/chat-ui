@@ -28,7 +28,7 @@ OPENID_CONFIG=`{
   CLIENT_SECRET: "<your client secret from step 1>",
 }`
 SERPER_API_KEY=<your serper API key from step 3>
-MESSAGES_BEFORE_LOGIN=<can be any numerical value, or set to 0 to require login>
+MESSAGES_BEFORE_LOGIN=<can be any numerical value, -1 means unlimited, or set to 0 to require login>
 ```
 
 You can then run `npm run updateLocalEnv` in the root of chat-ui. This will create a `.env.local` file which combines the `chart/env/prod.yaml` and the `.env.SECRET_CONFIG` file. You can then run `npm run dev` to start your local instance of HuggingChat.
