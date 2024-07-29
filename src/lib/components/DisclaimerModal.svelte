@@ -86,6 +86,16 @@
 					</button>
 				</form>
 			{/if}
+			{#each JSON.parse(envPublic.PUBLIC_NAV_LINKS || "[]") as navLink}
+				<a
+					href={navLink.href}
+					target="_blank"
+					rel="noreferrer"
+					class="flex flex-none items-center gap-1.5 rounded-lg px-3 py-0.5 text-sm text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700"
+				>
+					{navLink.title}
+				</a>
+			{/each}
 		</div>
 	</div>
 </Modal>
