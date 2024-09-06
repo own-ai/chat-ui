@@ -149,6 +149,7 @@ export async function updateUser(params: {
 			hfUserId,
 			isAdmin,
 			isEarlyAccess,
+			isCreator: false,
 		});
 
 		userId = insertedId;

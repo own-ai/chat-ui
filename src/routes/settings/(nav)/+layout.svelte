@@ -78,39 +78,40 @@
 			<h3 bind:this={assistantsSection} class="pl-3 pt-5 text-[.8rem] text-gray-800 sm:pl-1">
 				Assistants
 			</h3>
-			<!-- My Assistants -->
-			<h4 class="py-2 pl-5 text-[.7rem] text-gray-600 sm:pl-1">My Assistants</h4>
+			{#if !data.loginEnabled || (data.loginEnabled && data.user?.isCreator)}
+				<!-- My Assistants -->
+				<h4 class="py-2 pl-5 text-[.7rem] text-gray-600 sm:pl-1">My Assistants</h4>
 
-			{#each data.assistants.filter((assistant) => assistant.createdByMe) as assistant}
-				<a
-					href="{base}/settings/assistants/{assistant._id.toString()}"
-					class="group flex h-10 flex-none items-center gap-2 pl-2 pr-2 text-sm text-gray-500 hover:bg-gray-100 md:rounded-xl
-					{assistant._id.toString() === $page.params.assistantId ? '!bg-gray-100 !text-gray-800' : ''}"
-				>
-					{#if assistant.avatar}
-						<img
-							src="{base}/settings/assistants/{assistant._id.toString()}/avatar.jpg?hash={assistant.avatar}"
-							alt="Avatar"
-							class="h-6 w-6 rounded-full"
-						/>
-					{:else}
-						<div
-							class="flex size-6 items-center justify-center rounded-full bg-gray-300 font-bold uppercase text-gray-500"
-						>
-							{assistant.name[0]}
-						</div>
-					{/if}
-					<div class="truncate text-gray-900">{assistant.name}</div>
-					{#if assistant._id.toString() === $settings.activeModel}
-						<div
-							class="ml-auto rounded-lg bg-black px-2 py-1.5 text-xs font-semibold leading-none text-white"
-						>
-							Active
-						</div>
-					{/if}
-				</a>
-			{/each}
-			{#if !data.loginEnabled || (data.loginEnabled && !!data.user)}
+				{#each data.assistants.filter((assistant) => assistant.createdByMe) as assistant}
+					<a
+						href="{base}/settings/assistants/{assistant._id.toString()}"
+						class="group flex h-10 flex-none items-center gap-2 pl-2 pr-2 text-sm text-gray-500 hover:bg-gray-100 md:rounded-xl
+						{assistant._id.toString() === $page.params.assistantId ? '!bg-gray-100 !text-gray-800' : ''}"
+					>
+						{#if assistant.avatar}
+							<img
+								src="{base}/settings/assistants/{assistant._id.toString()}/avatar.jpg?hash={assistant.avatar}"
+								alt="Avatar"
+								class="h-6 w-6 rounded-full"
+							/>
+						{:else}
+							<div
+								class="flex size-6 items-center justify-center rounded-full bg-gray-300 font-bold uppercase text-gray-500"
+							>
+								{assistant.name[0]}
+							</div>
+						{/if}
+						<div class="truncate text-gray-900">{assistant.name}</div>
+						{#if assistant._id.toString() === $settings.activeModel}
+							<div
+								class="ml-auto rounded-lg bg-black px-2 py-1.5 text-xs font-semibold leading-none text-white"
+							>
+								Active
+							</div>
+						{/if}
+					</a>
+				{/each}
+
 				<a
 					href="{base}/settings/assistants/new"
 					class="group flex h-10 flex-none items-center gap-2 pl-3 pr-2 text-sm text-gray-500 hover:bg-gray-100 md:rounded-xl
@@ -119,10 +120,10 @@
 					<CarbonAdd />
 					<div class="truncate">Create new assistant</div>
 				</a>
-			{/if}
 
-			<!-- Other Assistants -->
-			<h4 class="pl-3 pt-3 text-[.7rem] text-gray-600 sm:pl-1">Other Assistants</h4>
+				<!-- Other Assistants -->
+				<h4 class="pl-3 pt-3 text-[.7rem] text-gray-600 sm:pl-1">Other Assistants</h4>
+			{/if}
 
 			{#each data.assistants.filter((assistant) => !assistant.createdByMe) as assistant}
 				<a

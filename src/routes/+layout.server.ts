@@ -237,6 +237,7 @@ export const load: LayoutServerLoad = async ({ locals, depends, request }) => {
 			logoutDisabled: locals.user.logoutDisabled,
 			isAdmin: locals.user.isAdmin ?? false,
 			isEarlyAccess: locals.user.isEarlyAccess ?? false,
+			isCreator: locals.user.isCreator ?? false,
 		},
 		assistant,
 		enableAssistants,

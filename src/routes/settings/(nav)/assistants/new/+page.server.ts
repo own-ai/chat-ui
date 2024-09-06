@@ -93,7 +93,7 @@ export const actions: Actions = {
 		}
 
 		// can only create assistants when logged in, IF login is setup
-		if (!locals.user && requiresUser) {
+		if (!locals.user?.isCreator && requiresUser) {
 			const errors = [{ field: "preprompt", message: "Must be logged in. Unauthorized" }];
 			return fail(400, { error: true, errors });
 		}
