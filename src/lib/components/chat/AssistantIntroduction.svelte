@@ -50,6 +50,33 @@
 	let isCopied = false;
 
 	const settings = useSettingsStore();
+
+	function replacePlaceholders(str: string) {
+		const matches = str.match(/{{\s*([^}]+)\s*}}/g);
+
+		if (!matches) {
+			return str;
+		}
+
+		for (const match of matches) {
+			const placeholder = match.slice(2, -2).trim();
+			const replacement = prompt(`Please enter your ${placeholder}:`);
+			if (replacement === null) {
+				return null;
+			}
+
+			str = str.replace(match, replacement);
+		}
+
+		return str;
+	}
+
+	function dispatchExample(example: string) {
+		const message = replacePlaceholders(example);
+		if (message !== null) {
+			dispatch("message", message);
+		}
+	}
 </script>
 
 <div class="flex h-full w-full flex-col content-center items-center justify-center pb-52">
@@ -177,7 +204,7 @@
 						<button
 							type="button"
 							class="truncate whitespace-nowrap rounded-xl border bg-gray-50 px-3 py-2 text-left text-smd text-gray-600 hover:bg-gray-100 dark:border-gray-800 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
-							on:click={() => dispatch("message", example)}
+							on:click={() => dispatchExample(example)}
 						>
 							{example}
 						</button>
