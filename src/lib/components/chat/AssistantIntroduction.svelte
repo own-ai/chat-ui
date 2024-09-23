@@ -194,7 +194,7 @@
 	</div>
 	{#if assistant.exampleInputs}
 		<div class="mx-auto mt-auto w-full gap-8 sm:-mb-8">
-			<div class="md:col-span-2 md:mt-6">
+			<div class="mt-8 md:col-span-2 md:mt-6">
 				<div
 					class="grid grid-cols-1 gap-3 {assistant.exampleInputs.length > 1
 						? 'md:grid-cols-2'
