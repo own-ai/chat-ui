@@ -116,6 +116,14 @@ export async function getOIDCAuthorizationUrl(
 	});
 }
 
+export async function getOIDCEndSessionUrl(settings: OIDCSettings): Promise<string> {
+	const client = await getOIDCClient(settings);
+
+	return client.endSessionUrl({
+		post_logout_redirect_uri: settings.redirectURI,
+	});
+}
+
 export async function getOIDCUserData(
 	settings: OIDCSettings,
 	code: string,
