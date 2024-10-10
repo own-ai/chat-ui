@@ -419,7 +419,7 @@
 						>
 					</span>
 					<p class="text-xs text-gray-500">
-						Choose up to 3 community tools that will be used with this assistant.
+						Choose up to 3 tools that will be used with this assistant.
 					</p>
 				</div>
 				<AssistantToolPicker bind:toolIds={tools} />

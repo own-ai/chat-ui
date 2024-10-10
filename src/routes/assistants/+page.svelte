@@ -12,7 +12,6 @@
 	import CarbonHelpFilled from "~icons/carbon/help-filled";
 	import CarbonClose from "~icons/carbon/close";
 	import CarbonArrowUpRight from "~icons/carbon/arrow-up-right";
-	import CarbonEarthAmerica from "~icons/carbon/earth-americas-filled";
 	import CarbonUserMultiple from "~icons/carbon/user-multiple";
 	import CarbonSearch from "~icons/carbon/search";
 	import CarbonTools from "~icons/carbon/tools";
@@ -131,7 +130,7 @@
 				</a>
 			{/if}
 		</div>
-		<h3 class="text-gray-500">Popular assistants made by the community</h3>
+		<h3 class="text-gray-500">Assistants are able to complete complex tasks</h3>
 		<div class="mt-6 flex justify-between gap-2 max-sm:flex-col sm:items-center">
 			<select
 				class="mt-1 h-[34px] rounded-lg border border-gray-300 bg-gray-50 px-2 text-sm text-gray-900 focus:border-blue-700 focus:ring-blue-700 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
@@ -193,8 +192,7 @@
 						? 'border-gray-300 bg-gray-50  dark:border-gray-600 dark:bg-gray-700 dark:text-white'
 						: 'border-transparent text-gray-400 hover:text-gray-800 dark:hover:text-gray-300'}"
 				>
-					<CarbonEarthAmerica class="text-xs" />
-					Community
+					All Assistants
 				</a>
 				{#if data.user?.username}
 					<a

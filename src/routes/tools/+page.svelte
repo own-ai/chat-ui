@@ -115,7 +115,7 @@
 				</a>
 			{/if}
 		</div>
-		<h3 class="text-gray-500">Popular tools made by the community</h3>
+		<h3 class="text-gray-500">Tools add new abilities to your AI assistants</h3>
 		<h4 class="mt-2 w-fit text-purple-700 dark:text-purple-300">
 			This feature is <span
 				class="rounded-lg bg-purple-100 px-2 py-1 font-semibold dark:bg-purple-800/50"
@@ -185,8 +185,7 @@
 						? 'border-gray-300 bg-gray-50  dark:border-gray-600 dark:bg-gray-700 dark:text-white'
 						: 'border-transparent text-gray-400 hover:text-gray-800 dark:hover:text-gray-300'}"
 				>
-					<CarbonEarthAmerica class="text-xs" />
-					Community
+					All tools
 				</a>
 				{#if data.user?.username}
 					<a

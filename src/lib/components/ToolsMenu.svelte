@@ -92,7 +92,7 @@
 					<span class="mr-1 rounded-full bg-purple-700 px-1.5 py-1 text-xs font-bold uppercase">
 						new
 					</span>
-					Browse community tools ({$page.data.communityToolCount ?? 0})
+					Browse tools ({$page.data.communityToolCount ?? 0})
 				</a>
 			{/if}
 			{#each tools as tool}
