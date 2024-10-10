@@ -10,7 +10,7 @@ WORKDIR /app
 COPY --link --chown=1000 package-lock.json package.json ./
 
 ARG APP_BASE=
-ARG PUBLIC_APP_COLOR=blue
+ARG PUBLIC_APP_COLOR=stone
 ENV BODY_SIZE_LIMIT=15728640
 
 RUN --mount=type=cache,target=/app/.npm \
@@ -52,7 +52,7 @@ ENV INCLUDE_DB=${INCLUDE_DB}
 # svelte requires APP_BASE at build time so it must be passed as a build arg
 ARG APP_BASE=
 # tailwind requires the primary theme to be known at build time so it must be passed as a build arg
-ARG PUBLIC_APP_COLOR=blue
+ARG PUBLIC_APP_COLOR=stone
 ENV BODY_SIZE_LIMIT=15728640
 
 # install dotenv-cli
